@@ -1,10 +1,5 @@
 import type { Project } from '../types';
 
-/**
- * Projects data representing actual repositories and portfolio systems.
- * Mapped from CV technical projects and GitHub account @yupx20.
- * Zero emojis, accurate technical specifications.
- */
 export const projects: Project[] = [
   {
     id: 1,
@@ -59,7 +54,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    name: 'sfia-skills-mapping',
+    name: 'sfia-skillmapping-project',
     description:
       'Research & development system utilizing Natural Language Processing to extract, parse, and match technical competencies from unstructured job specifications to the international SFIA (Skills Framework for the Information Age) taxonomy.',
     primary_language: 'Python',
@@ -68,7 +63,7 @@ export const projects: Project[] = [
     stars: 1,
     forks: 0,
     last_commit: '2026-11-16T15:53:00Z',
-    github_url: 'https://github.com/yupx20',
+    github_url: 'https://github.com/yupx20/sfia_skillmapping_project',
     is_featured: true,
     readme_html: `<h3>NLP Job Descriptions to SFIA Skills Mapping System</h3>
 <p>Research and development implementation for automated competency taxonomy alignment based on the global SFIA standard.</p>
@@ -79,7 +74,7 @@ export const projects: Project[] = [
 <li>Achieved 0.79 F1-score across evaluated technical competency benchmarks</li>
 </ul>
 <h4>Tech Stack</h4>
-<p>Python, KeyBERT, SkillNER, Transformers, Natural Language Processing, SFIA 8 Standard</p>`,
+<p>Python, KeyBERT, SkillNER, Transformers, Natural Language Processing, SFIA 9</p>`,
   },
   {
     id: 4,
@@ -144,7 +139,7 @@ export const projects: Project[] = [
     stars: 1,
     forks: 0,
     last_commit: '2024-09-30T10:00:00Z',
-    github_url: 'https://github.com/yupx20',
+    github_url: 'https://github.com/yupx20/growth_dashboard',
     is_featured: false,
     readme_html: `<h3>Telkom Growth Dashboard</h3>
 <p>Operational monitoring system designed for contract management and project workflow visibility at PT Telkom Indonesia.</p>
@@ -158,60 +153,34 @@ export const projects: Project[] = [
 <h4>Tech Stack</h4>
 <p>Python, Django, React.js, PostgreSQL, REST APIs, Git</p>`,
   },
+//   {
+//     id: 7,
+//     name: 'demand-forecasting-mcp',
+//     description:
+//       'Sales demand forecasting service, Model Context Protocol (MCP) server, and Streamlit executive dashboard for PT Borwita Citra Prima. Implements multi-model backtesting evaluated by WAPE metric.',
+//     primary_language: 'Python',
+//     language_color: '#3572A5',
+//     topics: ['forecasting', 'prophet', 'fastapi', 'streamlit', 'mcp', 'pandas'],
+//     stars: 1,
+//     forks: 0,
+//     last_commit: '2026-11-16T22:53:00Z',
+//     github_url: 'https://github.com/yupx20',
+//     is_featured: false,
+//     readme_html: `<h3>Demand Forecasting & Model Context Protocol (MCP) System</h3>
+// <p>End-to-end sales forecasting infrastructure serving enterprise planning requirements.</p>
+// <h4>System Features</h4>
+// <ul>
+// <li>Data aggregation pipeline resolving product identity via connected components</li>
+// <li>Multi-model backtesting comparing Naive, SES, Holt, and Prophet forecasting engines</li>
+// <li>Automated model selection optimized against Weighted Absolute Percentage Error (WAPE)</li>
+// <li>FastAPI REST microservice and Streamlit executive dashboard</li>
+// <li>Model Context Protocol (MCP) tool provider enabling enterprise LLM queries</li>
+// </ul>
+// <h4>Tech Stack</h4>
+// <p>Python, FastAPI, Streamlit, Prophet, Baserow, MCP</p>`,
+//   },
   {
     id: 7,
-    name: 'demand-forecasting-mcp',
-    description:
-      'Sales demand forecasting service, Model Context Protocol (MCP) server, and Streamlit executive dashboard for PT Borwita Citra Prima. Implements multi-model backtesting evaluated by WAPE metric.',
-    primary_language: 'Python',
-    language_color: '#3572A5',
-    topics: ['forecasting', 'prophet', 'fastapi', 'streamlit', 'mcp', 'pandas'],
-    stars: 1,
-    forks: 0,
-    last_commit: '2026-11-16T22:53:00Z',
-    github_url: 'https://github.com/yupx20',
-    is_featured: false,
-    readme_html: `<h3>Demand Forecasting & Model Context Protocol (MCP) System</h3>
-<p>End-to-end sales forecasting infrastructure serving enterprise planning requirements.</p>
-<h4>System Features</h4>
-<ul>
-<li>Data aggregation pipeline resolving product identity via connected components</li>
-<li>Multi-model backtesting comparing Naive, SES, Holt, and Prophet forecasting engines</li>
-<li>Automated model selection optimized against Weighted Absolute Percentage Error (WAPE)</li>
-<li>FastAPI REST microservice and Streamlit executive dashboard</li>
-<li>Model Context Protocol (MCP) tool provider enabling enterprise LLM queries</li>
-</ul>
-<h4>Tech Stack</h4>
-<p>Python, FastAPI, Streamlit, Prophet, Baserow, MCP</p>`,
-  },
-  {
-    id: 8,
-    name: 'image-super-resolution',
-    description:
-      'Deterministic deep learning web upscaler utilizing OpenCV dnn_superres (EDSR, FSRCNN, ESPCN) models. Upscales images 2x to 4x while strictly preserving native facial structures without generative hallucinations.',
-    primary_language: 'Python',
-    language_color: '#3572A5',
-    topics: ['deep-learning', 'opencv', 'streamlit', 'super-resolution', 'computer-vision'],
-    stars: 1,
-    forks: 0,
-    last_commit: '2026-06-20T23:39:00Z',
-    github_url: 'https://github.com/yupx20',
-    is_featured: false,
-    readme_html: `<h3>Image Super Resolution - Deep Learning Upscaler</h3>
-<p>Web application for deterministic image upscaling that prevents generative hallucination artifacts.</p>
-<h4>Technical Highlights</h4>
-<ul>
-<li>Supports 2x, 3x, and 4x scaling using pretrained EDSR, FSRCNN, and ESPCN neural models</li>
-<li>Deterministic reconstruction protecting human facial proportions from distortion</li>
-<li>Gentle edge sharpening module enhancing contour definition without noise</li>
-<li>Defensive file upload validation verifying file signatures and image integrity</li>
-<li>Built with interactive Streamlit interface and comprehensive pytest test suite</li>
-</ul>
-<h4>Tech Stack</h4>
-<p>Python, OpenCV dnn_superres, Streamlit, NumPy, PyTest</p>`,
-  },
-  {
-    id: 9,
     name: 'porto',
     description:
       'Persona-themed developer portfolio and project showcase with high-contrast JRPG aesthetic, responsive layout, interactive status dossier, and project grimoire. Built with React 19, Tailwind CSS v4, and Vite.',
