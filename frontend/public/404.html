@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function() {
+        var pathname = window.location.pathname;
+        var base = '/porto/';
+        if (pathname.indexOf(base) === 0) {
+          var route = pathname.slice(base.length);
+          if (route && route !== 'index.html' && !route.startsWith('#')) {
+            window.location.replace(base + '#/' + route + window.location.search + window.location.hash);
+            return;
+          }
+        }
+        window.location.replace(base);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/porto/">portfolio</a>...</p>
+  </body>
+</html>

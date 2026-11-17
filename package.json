@@ -1,0 +1,14 @@
+{
+  "name": "porto-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Persona-themed developer portfolio for Muhammad Rizal Yudianto",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
+    "lint": "npm --prefix frontend run lint"
+  },
+  "author": "Muhammad Rizal Yudianto <yudianto.r78@gmail.com>",
+  "license": "MIT"
+}

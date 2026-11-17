@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   PERSONA PORTFOLIO — DESIGN SYSTEM
+   Tailwind CSS v4 theme using @theme directive (CSS-first config)
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Persona Color Palette ──────────────────────────────────── */
+  --color-thief-red: #E60012;
+  --color-thief-red-bright: #FF0033;
+  --color-thief-red-glow: rgba(230, 0, 18, 0.3);
+  --color-velvet-indigo: #1E22AA;
+  --color-velvet-bright: #3A4BFF;
+  --color-velvet-glow: rgba(58, 75, 255, 0.3);
+  --color-octane-yellow: #FFE600;
+  --color-octane-glow: rgba(255, 230, 0, 0.3);
+  --color-phantom-black: #0A0A0B;
+  --color-phantom-dark: #121214;
+  --color-phantom-mid: #1A1A1F;
+  --color-comic-white: #FFFFFF;
+  --color-panel-light: #F3F4F6;
+  --color-halftone-gray: #2A2A30;
+  --color-halftone-mid: #3A3A42;
+  --color-muted: #888892;
+
+  /* ── Typography ─────────────────────────────────────────────── */
+  --font-display: "Bebas Neue", "Anton", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Angular Geometry Tokens ────────────────────────────────── */
+  --skew-heavy: -12deg;
+  --skew-medium: -8deg;
+  --skew-light: -4deg;
+
+  /* ── Shadows ────────────────────────────────────────────────── */
+  --shadow-comic: 6px 6px 0px #000000;
+  --shadow-comic-sm: 3px 3px 0px #000000;
+  --shadow-comic-red: 6px 6px 0px #E60012;
+  --shadow-glow-red: 0 0 30px rgba(230, 0, 18, 0.4);
+  --shadow-glow-blue: 0 0 30px rgba(58, 75, 255, 0.4);
+
+  /* ── Easings ────────────────────────────────────────────────── */
+  --ease-persona: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cut-in: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --ease-snap: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+
+  /* ── Spacing Scale Extensions ───────────────────────────────── */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-120: 30rem;
+
+  /* ── Z-Index Scale ──────────────────────────────────────────── */
+  --z-base: 0;
+  --z-card: 10;
+  --z-nav: 50;
+  --z-modal: 100;
+  --z-overlay: 200;
+  --z-terminal: 300;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GOOGLE FONTS — loaded via <link> in index.html for performance
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-phantom-black);
+  color: var(--color-comic-white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── Selection ─────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-thief-red);
+  color: var(--color-comic-white);
+}
+
+/* ── Custom Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-phantom-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-thief-red);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-thief-red-bright);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-thief-red) var(--color-phantom-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HALFTONE DOT PATTERN — SVG-based background texture
+   ═══════════════════════════════════════════════════════════════ */
+
+.halftone-bg {
+  position: relative;
+}
+
+.halftone-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--color-comic-white) 1px, transparent 1px);
+  background-size: 16px 16px;
+  z-index: 1;
+}
+
+.halftone-bg-dense::before {
+  background-size: 8px 8px;
+  opacity: 0.04;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SKEW UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+.skew-container {
+  transform: skewX(var(--skew-heavy));
+}
+
+.skew-container > * {
+  transform: skewX(calc(var(--skew-heavy) * -1));
+}
+
+.skew-container-light {
+  transform: skewX(var(--skew-light));
+}
+
+.skew-container-light > * {
+  transform: skewX(calc(var(--skew-light) * -1));
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMIC PANEL BORDER STYLE
+   ═══════════════════════════════════════════════════════════════ */
+
+.comic-border {
+  border: 3px solid var(--color-comic-white);
+  box-shadow: var(--shadow-comic);
+}
+
+.comic-border-red {
+  border: 3px solid var(--color-thief-red);
+  box-shadow: var(--shadow-comic-red);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DIAGONAL CUT SECTION DIVIDERS
+   ═══════════════════════════════════════════════════════════════ */
+
+.diagonal-cut {
+  clip-path: polygon(0 0, 100% 4%, 100% 96%, 0 100%);
+}
+
+.diagonal-cut-top {
+  clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
+}
+
+.diagonal-cut-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 94%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TEXT UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+.text-stroke {
+  -webkit-text-stroke: 2px var(--color-comic-white);
+  color: transparent;
+}
+
+.text-stroke-red {
+  -webkit-text-stroke: 2px var(--color-thief-red);
+  color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, 2px); }
+  20% { clip-path: inset(92% 0 1% 0); transform: translate(1px, -1px); }
+  40% { clip-path: inset(43% 0 1% 0); transform: translate(-1px, 3px); }
+  60% { clip-path: inset(25% 0 58% 0); transform: translate(3px, 1px); }
+  80% { clip-path: inset(54% 0 7% 0); transform: translate(-3px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(25% 0 58% 0); transform: translate(2px, -2px); }
+  20% { clip-path: inset(54% 0 7% 0); transform: translate(-1px, 1px); }
+  40% { clip-path: inset(92% 0 1% 0); transform: translate(1px, -3px); }
+  60% { clip-path: inset(40% 0 61% 0); transform: translate(-3px, -1px); }
+  80% { clip-path: inset(43% 0 1% 0); transform: translate(3px, 2px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes cut-in-slide {
+  0% { transform: translateX(100%) skewX(-20deg); opacity: 0; }
+  60% { transform: translateX(-5%) skewX(-5deg); opacity: 1; }
+  100% { transform: translateX(0) skewX(0deg); opacity: 1; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.animate-glitch-1 {
+  animation: glitch-1 0.3s ease-in-out infinite alternate;
+}
+
+.animate-glitch-2 {
+  animation: glitch-2 0.3s ease-in-out infinite alternate;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-cut-in {
+  animation: cut-in-slide 0.6s var(--ease-cut-in) forwards;
+}
+
+.animate-flicker {
+  animation: flicker 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .skew-container {
+    transform: skewX(var(--skew-light));
+  }
+
+  .skew-container > * {
+    transform: skewX(calc(var(--skew-light) * -1));
+  }
+}
