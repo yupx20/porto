@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Skull } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useAudio } from '../../hooks/useAudio';
 
 /**
@@ -16,6 +16,8 @@ const navItems = [
   { path: '/projects', label: 'GRIMOIRE', shortLabel: 'III' },
   { path: '/contact', label: 'VELVET ROOM', shortLabel: 'IV' },
 ];
+
+const p5Icon = `${import.meta.env.BASE_URL}p5icon.png`;
 
 export default function Navbar() {
   const location = useLocation();
@@ -32,9 +34,13 @@ export default function Navbar() {
           {/* Logo / Brand */}
           <Link
             to="/"
-            className="flex items-center gap-2 font-display text-2xl tracking-wider text-comic-white hover:text-thief-red transition-colors"
+            className="flex items-center gap-2.5 font-display text-2xl tracking-wider text-comic-white hover:text-thief-red transition-colors group"
           >
-            <Skull size={24} className="text-thief-red" />
+            <img
+              src={p5Icon}
+              alt="Persona Hat"
+              className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
+            />
             <span>PERSONA</span>
             <span className="text-thief-red">FOLIO</span>
           </Link>
